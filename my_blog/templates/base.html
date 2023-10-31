@@ -57,18 +57,20 @@
 
             <div class="widget clearfix">
                 <div class="widget-title">
-                    <h3><span>Blog Categories</span></h3>
+                    <h3><span>Latest Posts</span></h3>
                 </div><!-- end widget-title -->
 
-                <div class="category-widget">
-                    <ul>
-                        <li><a href="#">LifeStyle (12)</a></li>
-                        <li><a href="#">Travel (12)</a></li>
-                        <li><a href="#">Fashion (12)</a></li>
-                        <li><a href="#">Blogging (12)</a></li>
-                        <li><a href="#">Marketing (12)</a></li>
-                    </ul>
-                </div><!-- end category -->
+                <div class="blog-list-widget">
+                    <div class="list-group">
+                        <a href="single.html" class="list-group-item list-group-item-action flex-column align-items-start">
+                            <div class="w-100 justify-content-between">
+                                <img src="{% static 'upload/insta_09.jpeg' %}" alt="" class="img-fluid float-left">
+                                <h5 class="mb-1">A Beautiful Minimal Website Design</h5>
+                                <small>12 Jan, 2016</small>
+                            </div>
+                        </a>
+                    </div>
+                </div><!-- end blog-list -->
             </div><!-- end widget -->
         </div>
 
@@ -85,11 +87,11 @@
                             </li>
 
                             <li class="nav-item">
-                                <a class="nav-link" href="shop-login.html">login</a>
+                                <a class="nav-link" href="login.html">login</a>
                             </li>
 
                             <li class="nav-item">
-                                <a class="nav-link" href="shop-login.html">signup</a>
+                                <a class="nav-link" href="signup.html">signup</a>
                             </li>
 
                             <li class="nav-item">
@@ -110,6 +112,18 @@
                 </nav>
             </div><!-- end container -->
         </header><!-- end header -->
+
+        <div class="header-section">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="logo">
+                            <a href="index.html"><img src="{% static 'images/logo.png' %}" alt=""></a>
+                        </div><!-- end logo -->
+                    </div>
+                </div><!-- end row -->
+            </div><!-- end header-logo -->
+        </div><!-- end header -->
 
         {% block content %}
         {% endblock %}
