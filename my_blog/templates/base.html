@@ -1,0 +1,142 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- Basic -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    
+    <!-- Mobile Metas -->
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    
+    <!-- Site Metas -->
+    <title>Matilda - Stylish Personal Blog Template</title>
+    <meta name="keywords" content="">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    
+    <!-- Site Icons -->
+    <link rel="shortcut icon" href="{% static 'images/favicon.ico' %}" type="image/x-icon" />
+    <link rel="apple-touch-icon" href="{% static 'images/apple-touch-icon.png' %}">
+    
+    <!-- Design fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Work+Sans:300,400,500,700" rel="stylesheet"> 
+    <link href="https://fonts.googleapis.com/css?family=Josefin+Sans:300,400,400i,600,700" rel="stylesheet"> 
+
+    <link href="{% static 'css/bootstrap.min.css' %}" rel="stylesheet">
+    <link href="{% static 'css/font-awesome.min.css' %}" rel="stylesheet">
+    <link href="{% static 'css/animate.min.css' %}" rel="stylesheet">
+    <link href="{% static 'css/style.css' %}" rel="stylesheet">
+    
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+</head>
+<body>
+
+    <!-- LOADER -->
+    <div id="preloader">
+        <img class="preloader" src="{% static 'images/loader.gif' %}" alt="">
+    </div><!-- end loader -->
+    <!-- END LOADER -->
+    
+    <div id="wrapper">
+        <div class="sidewrapper sidenav">
+            <div class="text-right"><a href="#" id="nav-close"><i class="fa fa-close"></i></a></div>
+            <div class="widget">
+                <div class="widget-title">
+                    <h3><span>user profile</span></h3>
+                </div><!-- end widget-title -->
+
+                <div class="text-widget">
+                    <p>로그인한 사용자의 이름 및 정보가 여기에 업로드 되도록</p>
+                </div><!-- end footer-text -->
+            </div><!-- end widget -->
+
+            <div class="widget clearfix">
+                <div class="widget-title">
+                    <h3><span>Blog Categories</span></h3>
+                </div><!-- end widget-title -->
+
+                <div class="category-widget">
+                    <ul>
+                        <li><a href="#">LifeStyle (12)</a></li>
+                        <li><a href="#">Travel (12)</a></li>
+                        <li><a href="#">Fashion (12)</a></li>
+                        <li><a href="#">Blogging (12)</a></li>
+                        <li><a href="#">Marketing (12)</a></li>
+                    </ul>
+                </div><!-- end category -->
+            </div><!-- end widget -->
+        </div>
+
+        <header class="header">
+            <div class="container">
+                <nav class="navbar navbar-inverse navbar-toggleable-md">
+                    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#matildamenu" aria-controls="matildamenu" aria-expanded="false" aria-label="Toggle navigation">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+                    <div class="collapse navbar-collapse" id="matildamenu">
+                        <ul class="navbar-nav">
+                            <li class="nav-item">
+                                <a class="nav-link" href="index.html">blog home</a>
+                            </li>
+
+                            <li class="nav-item">
+                                <a class="nav-link" href="shop-login.html">login</a>
+                            </li>
+
+                            <li class="nav-item">
+                                <a class="nav-link" href="shop-login.html">signup</a>
+                            </li>
+
+                            <li class="nav-item">
+                                <a class="nav-link" href="#">logout</a>
+                            </li>
+                            
+                            <li class="nav-item">
+                                <a class="nav-link" href="#">create new post</a>
+                            </li>
+                        </ul>
+
+                        <div class="nav navbar-nav ml-auto hidden-md-down hidden-sm-down hidden-xs-down">
+                            <div class="menu-right">
+                                <a id="nav-expander" href="#" data-toggle="tooltip" data-placement="bottom" title="Open Right Menu"><i class="fa fa-bars"></i></a>
+                            </div><!-- end social -->
+                        </div>
+                    </div>
+                </nav>
+            </div><!-- end container -->
+        </header><!-- end header -->
+
+        {% block content %}
+        {% endblock %}
+
+        <footer class="footer">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-5 col-md-12">
+                        <div class="widget">
+                            <div class="footer-text">
+                                <a href="index.html"><img src="{% static 'images/flogo.png' %}" alt="" class="img-fluid"></a>
+                                <p>Copyright 2017. Matilda inc. all rights reserved.</p>
+                                <p>Made by ChoSangYeon: Orim 3rd's Mini Project<br>E-mail: chosy607@gmail.com<br>GitHub: <a href="https://github.com/ChoSangYeon">https://github.com/ChoSangYeon</pre>
+                            </div><!-- end footer-text -->
+                        </div><!-- end widget -->
+                    </div><!-- end col -->
+                </div><!-- end row -->
+            </div><!-- end container -->
+        </footer><!-- end footer -->
+    </div><!-- end wrapper -->
+
+    <!-- Core JavaScript
+    ================================================== -->
+    <script src="{% static 'js/jquery.min.js' %}"></script>
+    <script src="{% static 'js/tether.min.js' %}"></script>
+    <script src="{% static 'js/bootstrap.min.js' %}"></script>
+    <script src="{% static 'js/custom.js' %}"></script>
+
+</body>
+</html>

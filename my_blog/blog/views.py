@@ -77,7 +77,6 @@ class PostUpdateView(UserPassesTestMixin, UpdateView):
     def test_func(self): # UserPassesTestMixin에 있고 test_func() 메서드를 오버라이딩, True, False 값으로 접근 제한
         return self.get_object().author == self.request.user
 
-
 post_edit = PostUpdateView.as_view()
 
 
