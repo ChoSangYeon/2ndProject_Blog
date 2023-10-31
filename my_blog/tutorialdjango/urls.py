@@ -5,7 +5,6 @@ from django.conf import settings
 from django.views.generic.base import RedirectView
 
 urlpatterns = [
-    # path('', RedirectView.as_view(url='tube/'), name='root'),
     path('', RedirectView.as_view(pattern_name='blog:post_list'), name='root'),
     path('admin/', admin.site.urls),
     path('blog/', include('blog.urls')),

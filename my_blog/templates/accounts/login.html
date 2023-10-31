@@ -21,18 +21,18 @@
                     <h4>Login Account</h4>
                     <hr>
                     <form action="" method="post" enctype="multipart/form-data">
-
                         {% csrf_token %}
                         <table>
                             {{ form.as_table }}
                         </table>
 
-                        <div class="form-group">
+                        <!-- <div class="form-group">
                             <input type="text" class="form-control" placeholder="username">
                         </div>
                         <div class="form-group">
                             <input type="password" class="form-control" placeholder="password">
-                        </div>
+                        </div> -->
+
                         <div class="form-group text-center"> 
                             <button class="btn btn-primary" type="submit">login</button>
                         </div>

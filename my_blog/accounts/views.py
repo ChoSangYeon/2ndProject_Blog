@@ -14,7 +14,7 @@ signup = CreateView.as_view(
 
 login = LoginView.as_view(
     template_name = 'accounts/login.html',
-    success_url = '/accounts/profile.html/'
+    success_url = '/blog/post_list.html/'
 )
 
 logout = LogoutView.as_view(
@@ -23,4 +23,4 @@ logout = LogoutView.as_view(
 
 @login_required
 def profile(request):
-    return render(request, 'accounts/profile.html')
+    return render(request, 'blog/post_list.html')
