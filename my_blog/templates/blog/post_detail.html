@@ -1,7 +1,23 @@
+{% extends 'base.html' %}
+
+{% block content %}
+{% load static %}
+
+<a href="{% url 'blog:post_list' %}">목록</a>
+{% if user == post.author %}
+<a href="{% url 'blog:post_edit' post.pk %}">수정</a>
+<a href="{% url 'blog:post_delete' post.pk %}">삭제</a>
+{% endif %}
+
+<hr>
+
 <p>조회수 : {{post.view_count}}</p>
 <p>카테고리: {{post.category}}</p>
 <p>게시물 업로드 시간: {{post.updated_at}}</p>
 <p>게시물 제목: {{post.title}}</p>
+{% if post.thumb_image %}
+    <img src="{{ post.thumb_image.url }}" alt="Post Image">
+{% endif %}
 <p>게시물 내용: {{post.content}}</p>
 
 {% if post.file_upload %}
@@ -27,8 +43,4 @@
     </form>
 </section>
 
-<a href="{% url 'blog:post_list' %}">목록</a>
-{% if user == post.author %}
-<a href="{% url 'blog:post_edit' post.pk %}">수정</a>
-<a href="{% url 'blog:post_delete' post.pk %}">삭제</a>
-{% endif %}
+{% endblock %}

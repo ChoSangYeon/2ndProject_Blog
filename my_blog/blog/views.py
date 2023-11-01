@@ -22,7 +22,7 @@ class PostCreateView(LoginRequiredMixin, CreateView):
     model = Post
     form_class = PostForm
     success_url = reverse_lazy('blog:post_list')
-    template_name = 'blog/form.html'
+    template_name = 'blog/post_new.html'
 
     def form_valid(self, form):
         post = form.save(commit=False)
@@ -52,7 +52,7 @@ class PostUpdateView(UserPassesTestMixin, UpdateView):
     model = Post
     form_class = PostForm
     success_url = reverse_lazy('blog:post_list')
-    template_name = 'blog/form.html'
+    template_name = 'blog/post_new.html'
 
     def test_func(self):
         return self.get_object().author == self.request.user
