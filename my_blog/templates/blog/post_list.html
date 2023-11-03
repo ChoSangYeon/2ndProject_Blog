@@ -117,11 +117,10 @@
 
                     <div class="category-widget">
                         <ul>
-                            <li><a href="#">LifeStyle (12)</a></li>
-                            <li><a href="#">Travel (12)</a></li>
-                            <li><a href="#">Fashion (12)</a></li>
-                            <li><a href="#">Blogging (12)</a></li>
-                            <li><a href="#">Marketing (12)</a></li>
+                            {% for post in post_list %}
+                            <li><a href="{% url 'blog:post_detail' post.pk %}">{{ post.category }} (n개?) </a></li>
+                            <!-- 카테고리 목록들만 옮겨놓은 페이지 이동? -->
+                            {% endfor %}
                         </ul>
                     </div><!-- end category -->
                 </div><!-- end widget -->
@@ -132,16 +131,9 @@
                     </div><!-- end widget-title -->
 
                     <div class="tag-widget">
-                        <a href="#">design</a>
-                        <a href="#">art</a>
-                        <a href="#">gallery</a>
-                        <a href="#">fashion</a>
-                        <a href="#">modern</a>
-                        <a href="#">creative</a>
-                        <a href="#">respo</a>
-                        <a href="#">antica</a>
-                        <a href="#">mobsen</a>
-                        <a href="#">green</a>
+                        {% for post in post_list %}
+                        <a href="{% url 'blog:post_detail' post.pk %}">{{ post.tag }}</a>
+                        {% endfor %}
                     </div><!-- end tag-widget -->
                 </div><!-- end widget -->
             </div><!-- end sidebar -->

@@ -11,8 +11,14 @@ class PostForm(forms.ModelForm):
         empty_label="(Select a category)",
         required=False,
     )
-
     new_category = forms.CharField(max_length=50, required=False)
+
+    tag = forms.ModelChoiceField(
+        queryset=Tag.objects.all(),
+        empty_label="(Select a tag)",
+        required=False,
+    )
+    new_tag = forms.CharField(max_length=50, required=False)
 
 
 class CommentForm(forms.ModelForm):

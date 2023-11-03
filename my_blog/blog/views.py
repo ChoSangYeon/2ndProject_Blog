@@ -36,18 +36,25 @@ class PostCreateView(LoginRequiredMixin, CreateView):
         form = PostForm(request.POST, request.FILES)
         if form.is_valid():
             category_name = form.cleaned_data.get('new_category')
+            tag_name = form.cleaned_data.get('new_tag')
+
             if category_name:
                 category, created = Category.objects.get_or_create(name=category_name)
                 form.instance.category = category
             else:
                 form.instance.category = form.cleaned_data['category']
 
+            if tag_name:
+                tag, created = Tag.objects.get_or_create(name=tag_name)
+                form.instance.tag = tag
+            else:
+                form.instance.tag = form.cleaned_data['tag']
+
             form.instance.author = request.user
             form.save()
             return redirect('blog:post_list')
 
         return render(request, self.template_name, {'form': form})
-
 
 post_new = PostCreateView.as_view()
 
