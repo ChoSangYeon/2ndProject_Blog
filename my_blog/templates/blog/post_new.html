@@ -3,12 +3,18 @@
 {% block content %}
 {% load static %}
 
-<form action="" method="post" enctype="multipart/form-data">
-    {% csrf_token %}
-    <table>
-        {{ form.as_table }}
-    </table>
-    <input type="submit">
-</form>
+<section class="site-section">
+    <div class="container">
+        <div class="row justify-content-center">
+            <form action="" method="post" enctype="multipart/form-data">
+                {% csrf_token %}
+                <table>
+                    {{ form.as_table }}
+                </table>
+                <input type="submit">
+            </form>
+        </div>
+    </div>
+</section>
 
 {% endblock %}

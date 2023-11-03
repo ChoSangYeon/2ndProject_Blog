@@ -1,11 +1,18 @@
 from django import forms
-from .models import Post, Comment, Tag
+from .models import Post, Comment, Tag, Category
 
 class PostForm(forms.ModelForm):
     class Meta:
         model = Post
-        # fields = '__all__'
-        fields = ['title', 'content', 'thumb_image', 'file_upload'] # counter같은 값은 건들면 안되니까!
+        fields = ['title', 'content', 'thumb_image', 'file_upload', 'category', 'new_category']
+
+    category = forms.ModelChoiceField(
+        queryset=Category.objects.all(),
+        empty_label="(Select a category)",
+        required=False,
+    )
+
+    new_category = forms.CharField(max_length=50, required=False)
 
 
 class CommentForm(forms.ModelForm):
