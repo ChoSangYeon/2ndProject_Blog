@@ -113,3 +113,29 @@ def comment_new(request, pk):
     else:
         form = CommentForm()
     return render(request, 'blog/post_detail.html', {'form': form, 'post': post})
+
+def category_page(request, slug):
+    category = Category.objects.get(slug=slug)
+    categories = Category.objects.all().order_by('-name')
+    context = {
+        'post_list': Post.objects.filter(category=category).order_by('-pk'),
+        'categories': categories,
+        'no_category_post_count': Post.objects.filter(category=None).count(),
+        'category': category,
+        'category_list': Category.objects.all().order_by('-name'),
+    }
+    return render(request, 'blog/post_list.html', context)
+
+def tag_page(request, slug):
+    tag = Tag.objects.get(slug=slug)
+    print(tag)
+    post_list = tag.post_set.all()
+    categories = Category.objects.all().order_by('-name')
+    context = {
+        'post_list': post_list,
+        'categories': categories,
+        'no_category_post_count': Post.objects.filter(category=None).count(),
+        'tag': tag,
+        'category_list': Category.objects.all().order_by('-name'),
+    }
+    return render(request, 'blog/post_list.html', context)

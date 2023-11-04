@@ -134,6 +134,23 @@
                         {% for post in post_list %}
                         <a href="{% url 'blog:post_detail' post.pk %}">{{ post.tag }}</a>
                         {% endfor %}
+
+                        {% for post in post_list %}
+                            {% for tag in post.tags.all %}
+                                <a href="{% url 'blog:tag_posts' tag.pk %}">{{ tag.name }}</a>{% if not forloop.last %}, {% endif %}
+                            {% endfor %}
+                        {% endfor %}
+
+                        <a href="#">design</a>
+                        <a href="#">art</a>
+                        <a href="#">gallery</a>
+                        <a href="#">fashion</a>
+                        <a href="#">modern</a>
+                        <a href="#">creative</a>
+                        <a href="#">respo</a>
+                        <a href="#">antica</a>
+                        <a href="#">mobsen</a>
+                        <a href="#">green</a>
                     </div><!-- end tag-widget -->
                 </div><!-- end widget -->
             </div><!-- end sidebar -->
