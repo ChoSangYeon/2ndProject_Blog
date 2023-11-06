@@ -61,6 +61,7 @@ post_new = PostCreateView.as_view()
 
 class PostDetailView(DetailView):
     model = Post
+    template_name = 'blog/post_detail.html'
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
@@ -99,13 +100,6 @@ class PostDeleteView(UserPassesTestMixin, DeleteView):
 post_delete = PostDeleteView.as_view()
 
 
-@login_required
-def comment_list(request, pk):
-    post = get_object_or_404(Post, pk=pk)
-    comments = post.comments.all()
-    return render(request, 'blog/comment_list.html', {'post': post, 'comments': comments})
-
-@login_required
 def comment_new(request, pk):
     post = get_object_or_404(Post, pk=pk)
     if request.method == "POST":
@@ -115,7 +109,7 @@ def comment_new(request, pk):
             comment.post = post
             comment.author = request.user
             comment.save()
-            return redirect('blog:comment_list', pk=post.pk)
+            return redirect('blog:post_detail', pk=post.pk)
     else:
         form = CommentForm()
-    return render(request, 'blog/comment_new.html', {'form': form, 'post': post})
+    return render(request, 'blog/post_list.html', {'form': form, 'post': post})

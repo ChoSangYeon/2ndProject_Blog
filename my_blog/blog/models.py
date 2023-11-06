@@ -17,6 +17,9 @@ class Post(models.Model):
     viewed_by = models.ManyToManyField(User, blank=True)
     category = models.ForeignKey('Category', on_delete=models.SET_NULL, null=True, blank=True)
 
+    def get_absolute_url(self):
+        return reverse('blog:post_detail', args=[str(self.id)])
+
     def __str__(self):
         return self.title
     
@@ -25,7 +28,8 @@ class Post(models.Model):
 
 
 class Comment(models.Model):
-    post = models.ForeignKey('blog.Post', on_delete=models.CASCADE, related_name='comments')
+    # post = models.ForeignKey('blog.Post', on_delete=models.CASCADE, related_name='comments')
+    post = models.ForeignKey(Post, on_delete=models.CASCADE, related_name='comments')
     author = models.ForeignKey(User, on_delete=models.CASCADE)
     message = models.TextField()
     created_at = models.DateTimeField(default=timezone.now)
