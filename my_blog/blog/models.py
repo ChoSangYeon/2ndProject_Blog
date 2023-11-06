@@ -1,6 +1,7 @@
 from django.db import models
 from django.contrib.auth.models import User
 from autoslug import AutoSlugField
+from django.utils import timezone
 
 
 class Post(models.Model):
@@ -35,28 +36,14 @@ class Comment(models.Model):
 
 
 class Tag(models.Model):
-    name = models.CharField(max_length=25, unique=True)
-    slug = models.SlugField(max_length=200, db_index=True, unique=True, allow_unicode=True)
-    is_public = models.BooleanField(default=True)
-    created_at = models.DateTimeField(auto_now_add=True)
-    updated_at = models.DateField(auto_now=True)
+    name = models.CharField(max_length=50, unique=True)
 
     def __str__(self):
         return self.name
-
-    def get_absolute_url(self):
-        return f'/blog/tag/{self.slug}/'
 
 
 class Category(models.Model):
-    name = models.CharField(max_length=25, unique=True)
-    slug = models.SlugField(max_length=200, db_index=True, unique=True, allow_unicode=True)
-    is_public = models.BooleanField(default=True)
-    created_at = models.DateTimeField(auto_now_add=True)
-    updated_at = models.DateField(auto_now=True)
+    name = models.CharField(max_length=50, unique=True)
 
     def __str__(self):
         return self.name
-
-    def get_absolute_url(self):
-        return f'/blog/category/{self.slug}/'

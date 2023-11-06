@@ -3,55 +3,246 @@
 {% block content %}
 {% load static %}
 
-<section class="site-section">
+<div class="page-title">
     <div class="container">
-        <div>
-            <a href="{% url 'blog:post_list' %}">목록</a>
-            {% if user == post.author %}
-            <a href="{% url 'blog:post_edit' post.pk %}">수정</a>
-            <a href="{% url 'blog:post_delete' post.pk %}">삭제</a>
-            {% endif %}
-        </div>
-        
-        <hr>
-        
-        <div>
-            <p>조회수 : {{post.view_count}}</p>
-            <p>카테고리: {{post.category}}</p>
-            <p>게시물 업로드 시간: {{post.updated_at}}</p>
-            <p>게시물 제목: {{post.title}}</p>
-            {% if post.thumb_image %}
-                <img src="{{ post.thumb_image.url }}" alt="Post Image">
-            {% endif %}
-            <p>게시물 내용: {{post.content}}</p>
-            <p>태그: {{post.tag}}</p>
-            {% if post.file_upload %}
-            <video src="{{post.file_upload.url}}" controls></video>
-            {% endif %}
-        </div>
-        
-        <hr>
+        <div class="row">
+            <div class="col-lg-9 col-md-9 col-xs-12">
+                <h1>Blog</h1>
+                <p class="lead">{{post.title}}</p>
+            </div>
 
-        <div>
-            <h3>댓글</h3>
-            {% for comment in post.comments.all %}
-                <p>댓글: {{comment.message}}</p>
-                <p>작성자: {{comment.author}}</p>
-                <p>작성 시간: {{comment.updated_at}}</p>
-            {% endfor %}
-        </div>
-        
-        <hr>
-
-        <div>
-            <h3>댓글 작성</h3>
-            <form action="{% url 'blog:comment_new' post.pk %}" method="post">
-                {% csrf_token %}
-                {{ comment_form.as_p }}
-                <input type="submit" value="댓글 작성">
-            </form>
+            <div class="col-lg-3 col-md-3 col-xs-12">
+                <ol class="breadcrumb text-right">
+                    <li class="breadcrumb-item"><a href="{% url 'blog:post_list' %}">Matilda</a></li>
+                    <li class="breadcrumb-item active">Blog</li>
+                </ol>
+            </div>
         </div>
     </div>
-</section>
+</div>
+
+<section class="site-section">
+    <div class="container">
+        <div class="row">
+            <div class="content col-lg-8">
+                <div class="pull-right">
+                    <div class="post-share">
+                            <div>
+                                <p>조회수 : {{post.view_count}}</p>
+                                <a href="{% url 'blog:post_list' %}">목록</a>
+                                {% if user == post.author %}
+                                <a href="{% url 'blog:post_edit' post.pk %}">수정</a>
+                                <a href="{% url 'blog:post_delete' post.pk %}">삭제</a>
+                                {% endif %}
+                            </div>
+                    </div><!-- end share -->
+                </div><!-- end right -->
+
+                <hr class="dashedhr">
+
+                <div class="single-page clearfix">
+                    <div class="blog-media">
+                        {% if post.thumb_image %}
+                            <img src="{{ post.thumb_image.url }}" alt="Post Image" class="img-fluid">
+                        {% endif %}
+                        {% if post.file_upload %}
+                        <video src="{{post.file_upload.url}}" controls></video>
+                        {% endif %}
+                    </div>
+                    <!-- end blog-media -->
+
+                    <div class="blog-desc text-center">
+                        <span class="cat-title">{{post.category}}</span>
+                        <h4>{{post.title}}</h4>
+                        <div class="blog-meta">
+                            <span>Posted on: {{post.updated_at}}</span>
+                        </div>
+                        <!-- end meta -->
+                    </div>
+
+                    <p>{{post.content}}</p>
+
+                    <blockquote class="blockquote">
+                        "Neque porro quisquam est qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit..."
+                    </blockquote>
+
+                    <p>{{post.content}}</p>
+
+                    <hr class="dashedhr">
+
+                    <div class="single-blog-bottom clearfix">
+                        <div class="tag-widget float-left">
+                            <a href="#">design</a>
+                            {% for post in post_list %}
+                                <a href="{% url 'blog:post_detail' post.pk %}">{{ post.tag }}</a>
+                            {% endfor %}
+                        </div><!-- end tag-widget -->
+                    </div>
+
+                    <hr class="dashedhr">
+
+                    <div class="comments-wrapper">
+                        <h3 class="custom-title">Comments</h3>
+                        <div class="comments-list">
+                            <div class="media">
+                                <a class="media-left" href="#">
+                                    <img src="upload/people_12.jpg" alt="" class="rounded-circle">
+                                </a>
+                                <div class="media-body">
+                                    {% for comment in post.comments.all %}
+                                    <h4 class="media-heading user_name">{{comment.author}}<small>{{comment.updated_at}}</small></h4>
+                                        <p>댓글: {{comment.message}}</p>
+                                        <a href="#" class="btn btn-primary btn-sm">Reply</a>
+                                        <br><br><br><br>
+                                    {% endfor %}
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <hr class="dashedhr">
+
+                    <div class="comments-wrapper">
+                        <h3 class="custom-title">Leave a reply</h3>
+                        <div class="form-wrapper">
+                            <form class="row contact-form" action="{% url 'blog:comment_new' post.pk %}" method="post">
+                                {% csrf_token %}
+                                {{ comment_form.as_p }}
+                                <div class="form-group col-lg-12">
+                                    <input class="btn btn-primary" type="submit" value="Submit Comment">
+                                </div>
+                            </form>
+                        </div>
+                        <!-- end form -->
+                    </div><!-- end comment-wrapper -->
+
+                    <hr class="dashedhr">
+
+                    <div class="related-articles">
+                        <h3 class="custom-title">You may also like</h3>
+                        <div class="row">
+                            <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
+                                <div class="small-blog-box blog-box clearfix">
+                                    <div class="blog-media">
+                                        <a href="single.html" title=""><img src="upload/blog_03.jpg" alt="" class="img-fluid"></a>
+                                    </div>
+                                    <!-- end blog-media -->
+
+                                    <div class="blog-desc">
+                                        <span class="cat-title">Blogging</span>
+                                        <h4><a href="single.html" title="">01. Free Endless numbered days</a></h4>
+                                        <div class="blog-meta">
+                                            June 11, 2018 &nbsp;-&nbsp;<span>By</span> <a href="#">Denise Jakops</a>
+                                        </div>
+                                        <!-- end meta -->
+
+                                        <p>Praesent consectetur vel dui sed molestie. Aliquam imperdiet cursus dapibus. Quisque vestibulum blandit tellus, nec volutpat turpis.</p>
+
+                                        <div class="post-bottom clearfix">
+                                            <div class="pull-left">
+                                                <a href="single.html" class="readmore">Continue reading</a>
+                                            </div><!-- end left -->
+
+                                        </div><!-- end bottom -->
+                                    </div><!-- end desc -->
+                                </div><!-- end blog-box -->
+                            </div><!-- end col -->
+
+                            <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
+                                <div class="small-blog-box blog-box clearfix">
+                                    <div class="blog-media">
+                                        <a href="single.html" title=""><img src="upload/blog_02.jpg" alt="" class="img-fluid"></a>
+                                    </div>
+                                    <!-- end blog-media -->
+
+                                    <div class="blog-desc">
+                                        <span class="cat-title">Travel</span>
+                                        <h4><a href="single.html" title="">Get clean (water!) | Best water filters</a></h4>
+                                        <div class="blog-meta">
+                                            June 11, 2018 &nbsp;-&nbsp;<span>By</span> <a href="#">Matilda</a>
+                                        </div>
+                                        <!-- end meta -->
+
+                                        <p>Fusce sed lectus ut enim sagittis malesuada. Praesent maximus sollicitudin magna, a dapibus est venenatis quis lorem ipsum.</p>
+
+                                        <div class="post-bottom clearfix">
+                                            <div class="pull-left">
+                                                <a href="single.html" class="readmore">Continue reading</a>
+                                            </div><!-- end left -->
+                                        </div><!-- end bottom -->
+                                    </div><!-- end desc -->
+                                </div><!-- end blog-box -->
+                            </div><!-- end col -->
+                        </div><!-- end row -->
+                    </div><!-- end related -->
+                </div><!-- end single-page -->
+            </div><!-- end content -->
+
+            <div class="sidebar col-lg-4">
+                <div class="widget clearfix">
+                    <div class="widget-title">
+                        <h3><span>Site Search</span></h3>
+                    </div><!-- end widget-title -->
+                    <!-- 검색 기능 추가 -->
+                    <form action="" method="GET">
+                        <input type="text" name="q" value="{{ request.GET.q }}">
+                        <input type="submit" value="검색">
+                    </form>
+
+                    <form class="form-inline search-form">
+                        <div class="form-group">
+                            <input type="text" class="form-control" placeholder="Search on the site">
+                        </div>
+                        <button type="submit" class="btn btn-primary"><i class="fa fa-search"></i></button>
+                    </form>
+                </div><!-- end widget -->
+
+                <div class="widget clearfix">
+                    <div class="widget-title">
+                        <h3><span>Blog Categories</span></h3>
+                    </div><!-- end widget-title -->
+
+                    <div class="category-widget">
+                        <ul>
+                            {% for post in post_list %}
+                            <li><a href="{% url 'blog:post_detail' post.pk %}">{{ post.category }} (n개?) </a></li>
+                            <!-- 카테고리 목록들만 옮겨놓은 페이지 이동? -->
+                            {% endfor %}
+                        </ul>
+                    </div><!-- end category -->
+                </div><!-- end widget -->
+
+                <div class="widget clearfix">
+                    <div class="widget-title">
+                        <h3><span>Tag Cloud</span></h3>
+                    </div><!-- end widget-title -->
+
+                    <div class="tag-widget">
+                        {% for post in post_list %}
+                        <a href="{% url 'blog:post_detail' post.pk %}">{{ post.tag }}</a>
+                        {% endfor %}
+
+                        {% for post in post_list %}
+                            {% for tag in post.tags.all %}
+                                <a href="{% url 'blog:tag_posts' tag.pk %}">{{ tag.name }}</a>{% if not forloop.last %}, {% endif %}
+                            {% endfor %}
+                        {% endfor %}
+
+                        <a href="#">design</a>
+                        <a href="#">art</a>
+                        <a href="#">gallery</a>
+                        <a href="#">fashion</a>
+                        <a href="#">modern</a>
+                        <a href="#">creative</a>
+                        <a href="#">respo</a>
+                        <a href="#">antica</a>
+                        <a href="#">mobsen</a>
+                        <a href="#">green</a>
+                    </div><!-- end tag-widget -->
+                </div><!-- end widget -->
+            </div><!-- end sidebar -->
+        </div><!-- end row -->
+    </div><!-- end container -->
+</section><!-- end section -->
 
 {% endblock %}
