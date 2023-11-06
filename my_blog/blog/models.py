@@ -1,5 +1,7 @@
 from django.db import models
 from django.contrib.auth.models import User
+from autoslug import AutoSlugField
+from django.utils import timezone
 
 
 class Post(models.Model):
@@ -11,7 +13,7 @@ class Post(models.Model):
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateField(auto_now=True)
     view_count = models.PositiveIntegerField(default=0)
-    tags = models.ManyToManyField('Tag', blank=True) # 동일한 동작 x why?
+    tags = models.ManyToManyField('Tag', blank=True)
     viewed_by = models.ManyToManyField(User, blank=True)
     category = models.ForeignKey('Category', on_delete=models.SET_NULL, null=True, blank=True)
 
@@ -23,11 +25,10 @@ class Post(models.Model):
 
 
 class Comment(models.Model):
-    post = models.ForeignKey(Post, on_delete=models.CASCADE, related_name='comments')
+    post = models.ForeignKey('blog.Post', on_delete=models.CASCADE, related_name='comments')
     author = models.ForeignKey(User, on_delete=models.CASCADE)
     message = models.TextField()
-    created_at = models.DateTimeField(auto_now_add=True)
-    updated_at = models.DateField(auto_now=True)
+    created_at = models.DateTimeField(default=timezone.now)
 
     def __str__(self):
         return self.message

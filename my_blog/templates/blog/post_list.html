@@ -129,6 +129,7 @@
                         {% for post in post_list %}
                             <a href="{% url 'blog:post_detail' post.pk %}">{{ post.tag }}</a>
                         {% endfor %}
+                        
                     </div><!-- end tag-widget -->
                 </div><!-- end widget -->
             </div><!-- end sidebar -->

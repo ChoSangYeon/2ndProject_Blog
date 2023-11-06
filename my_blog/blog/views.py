@@ -42,7 +42,7 @@ class PostCreateView(LoginRequiredMixin, CreateView):
                 category, created = Category.objects.get_or_create(name=category_name)
                 form.instance.category = category
             else:
-                form.instance.category = form.cleaned_data['category']
+                form.instance.tags = form.cleaned_data['category']
 
             if tag_name:
                 tag, created = Tag.objects.get_or_create(name=tag_name)
@@ -71,7 +71,7 @@ class PostDetailView(DetailView):
         pk = self.kwargs.get('pk')
         post = get_object_or_404(Post, pk=pk)
         post.view_count += 1
-        post.save()
+        post.save(update_fields=['view_count'])
         return post
 
 post_detail = PostDetailView.as_view()
@@ -100,6 +100,12 @@ post_delete = PostDeleteView.as_view()
 
 
 @login_required
+def comment_list(request, pk):
+    post = get_object_or_404(Post, pk=pk)
+    comments = post.comments.all()
+    return render(request, 'blog/comment_list.html', {'post': post, 'comments': comments})
+
+@login_required
 def comment_new(request, pk):
     post = get_object_or_404(Post, pk=pk)
     if request.method == "POST":
@@ -109,7 +115,7 @@ def comment_new(request, pk):
             comment.post = post
             comment.author = request.user
             comment.save()
-            return redirect('blog:post_detail', pk=post.pk)
+            return redirect('blog:comment_list', pk=post.pk)
     else:
         form = CommentForm()
-    return render(request, 'blog/post_detail.html', {'form': form, 'post': post})
+    return render(request, 'blog/comment_new.html', {'form': form, 'post': post})
