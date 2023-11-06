@@ -97,16 +97,11 @@
                         <h3><span>Site Search</span></h3>
                     </div><!-- end widget-title -->
                     <!-- 검색 기능 추가 -->
-                    <form action="" method="GET">
-                        <input type="text" name="q" value="{{ request.GET.q }}">
-                        <input type="submit" value="검색">
-                    </form>
-
-                    <form class="form-inline search-form">
+                    <form action="" method="GET" class="form-inline search-form">
                         <div class="form-group">
-                            <input type="text" class="form-control" placeholder="Search on the site">
+                            <input type="text" class="form-control" placeholder="Search on the site" name="q" value="{{ request.GET.q }}">
+                            <button type="submit" class="btn btn-primary"><i class="fa fa-search"></i></button>
                         </div>
-                        <button type="submit" class="btn btn-primary"><i class="fa fa-search"></i></button>
                     </form>
                 </div><!-- end widget -->
 
@@ -118,7 +113,7 @@
                     <div class="category-widget">
                         <ul>
                             {% for post in post_list %}
-                            <li><a href="{% url 'blog:post_detail' post.pk %}">{{ post.category }} (n개?) </a></li>
+                            <li><a href="{% url 'blog:post_detail' post.pk %}">{{ post.category }}</a></li>
                             <!-- 카테고리 목록들만 옮겨놓은 페이지 이동? -->
                             {% endfor %}
                         </ul>
@@ -132,25 +127,8 @@
 
                     <div class="tag-widget">
                         {% for post in post_list %}
-                        <a href="{% url 'blog:post_detail' post.pk %}">{{ post.tag }}</a>
+                            <a href="{% url 'blog:post_detail' post.pk %}">{{ post.tag }}</a>
                         {% endfor %}
-
-                        {% for post in post_list %}
-                            {% for tag in post.tags.all %}
-                                <a href="{% url 'blog:tag_posts' tag.pk %}">{{ tag.name }}</a>{% if not forloop.last %}, {% endif %}
-                            {% endfor %}
-                        {% endfor %}
-
-                        <a href="#">design</a>
-                        <a href="#">art</a>
-                        <a href="#">gallery</a>
-                        <a href="#">fashion</a>
-                        <a href="#">modern</a>
-                        <a href="#">creative</a>
-                        <a href="#">respo</a>
-                        <a href="#">antica</a>
-                        <a href="#">mobsen</a>
-                        <a href="#">green</a>
                     </div><!-- end tag-widget -->
                 </div><!-- end widget -->
             </div><!-- end sidebar -->

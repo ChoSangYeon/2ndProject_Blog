@@ -1,7 +1,5 @@
 from django.db import models
 from django.contrib.auth.models import User
-from autoslug import AutoSlugField
-from django.utils import timezone
 
 
 class Post(models.Model):
@@ -30,7 +28,7 @@ class Comment(models.Model):
     message = models.TextField()
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateField(auto_now=True)
-    
+
     def __str__(self):
         return self.message
 
