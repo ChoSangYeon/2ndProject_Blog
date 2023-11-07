@@ -5,6 +5,8 @@ from django.shortcuts import render, get_object_or_404, redirect
 from .models import Post, Comment, Tag, Category
 from .forms import PostForm, CommentForm
 from django.contrib.auth.decorators import login_required
+import random
+from .models import Post
 
 class PostListView(ListView):
     model = Post
@@ -18,6 +20,16 @@ class PostListView(ListView):
         if q:
             qs = qs.filter(title__icontains=q)
         return qs
+    
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context['random_posts'] = self.get_random_posts()
+        return context
+
+    def get_random_posts(self):
+        all_posts = Post.objects.all()
+        random_posts = random.sample(list(all_posts), min(len(all_posts), 3))
+        return random_posts
 
 post_list = PostListView.as_view()
 
@@ -46,7 +58,8 @@ class PostCreateView(LoginRequiredMixin, CreateView):
 
             if tag_name:
                 tag, created = Tag.objects.get_or_create(name=tag_name)
-                form.instance.tag = tag
+                # form.instance.tag = tag
+                form.instance.tags.add(tag)
             else:
                 form.instance.tag = form.cleaned_data['tag']
 
@@ -100,6 +113,7 @@ class PostDeleteView(UserPassesTestMixin, DeleteView):
 post_delete = PostDeleteView.as_view()
 
 
+@login_required
 def comment_new(request, pk):
     post = get_object_or_404(Post, pk=pk)
     if request.method == "POST":
@@ -112,4 +126,5 @@ def comment_new(request, pk):
             return redirect('blog:post_detail', pk=post.pk)
     else:
         form = CommentForm()
-    return render(request, 'blog/post_list.html', {'form': form, 'post': post})
+
+    return render(request, 'blog/post_detail.html', {'form': form, 'post': post})
