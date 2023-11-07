@@ -39,101 +39,150 @@
 
 ### 3.4 트리 구조
 <div style="overflow: auto; white-space: pre;">
-
-📦my_blog
- ┣ 📂accounts
- ┃ ┣ 📂migrations
- ┃ ┣ 📂__pycache__
- ┃ ┣ 📜admin.py
- ┃ ┣ 📜apps.py
- ┃ ┣ 📜forms.py
- ┃ ┣ 📜models.py
- ┃ ┣ 📜tests.py
- ┃ ┣ 📜urls.py
- ┃ ┣ 📜views.py
- ┃ ┗ 📜__init__.py
- ┣ 📂blog
- ┃ ┣ 📂migrations
- ┃ ┣ 📂__pycache__
- ┃ ┣ 📜admin.py
- ┃ ┣ 📜apps.py
- ┃ ┣ 📜forms.py
- ┃ ┣ 📜models.py
- ┃ ┣ 📜tests.py
- ┃ ┣ 📜urls.py
- ┃ ┣ 📜views.py
- ┃ ┗ 📜__init__.py
- ┣ 📂media
- ┃ ┗ 📂blog
- ┃ ┃ ┣ 📂files/ 📂2023/📂11/📂07
- ┃ ┃ ┃ ┣ 📜KakaoTalk_20231107_015356387.mp4
- ┃ ┃ ┃ ┗ 📜KakaoTalk_20231107_015356387_iIFWm6S.mp4
- ┃ ┃ ┗ 📂images/ 📂2023/📂11/📂07
- ┃ ┃ ┃ ┣ 📜KakaoTalk_20231107_015352688.jpg
- ┃ ┃ ┃ ┣ 📜KakaoTalk_20231107_015352688_01.jpg
- ┃ ┃ ┃ ┣ 📜KakaoTalk_20231107_015352688_01_bFGD3iF.jpg
- ┃ ┃ ┃ ┣ 📜KakaoTalk_20231107_015352688_enzs8fp.jpg
- ┃ ┃ ┃ ┗ 📜KakaoTalk_20231107_015352688_G9Q9kKK.jpg
- ┣ 📂static
- ┃ ┣ 📂css
- ┃ ┃ ┣ 📜.DS_Store
- ┃ ┃ ┣ 📜animate.css
- ┃ ┃ ┣ 📜animate.min.css
- ┃ ┃ ┣ 📜bootstrap.css
- ┃ ┃ ┣ 📜bootstrap.css.map
- ┃ ┃ ┣ 📜bootstrap.min.css
- ┃ ┃ ┣ 📜bootstrap.min.css.map
- ┃ ┃ ┣ 📜font-awesome.css
- ┃ ┃ ┣ 📜font-awesome.min.css
- ┃ ┃ ┗ 📜style.css
- ┃ ┣ 📂fonts
- ┃ ┃ ┣ 📜fontawesome-webfont.eot
- ┃ ┃ ┣ 📜fontawesome-webfont.svg
- ┃ ┃ ┣ 📜fontawesome-webfont.ttf
- ┃ ┃ ┣ 📜fontawesome-webfont.woff
- ┃ ┃ ┣ 📜fontawesome-webfont.woff2
- ┃ ┃ ┗ 📜FontAwesome.otf
- ┃ ┣ 📂images
- ┃ ┃ ┣ 📜apple-touch-icon.png
- ┃ ┃ ┣ 📜close.png
- ┃ ┃ ┣ 📜favicon.ico
- ┃ ┃ ┣ 📜flogo.png
- ┃ ┃ ┣ 📜loader.gif
- ┃ ┃ ┣ 📜loading.gif
- ┃ ┃ ┣ 📜logo.png
- ┃ ┃ ┣ 📜logo.psd
- ┃ ┃ ┣ 📜logo@2x.png
- ┃ ┃ ┣ 📜next.png
- ┃ ┃ ┣ 📜prev.png
- ┃ ┃ ┗ 📜white-logo.png
- ┃ ┣ 📂js
- ┃ ┃ ┣ 📜bootstrap.js
- ┃ ┃ ┣ 📜bootstrap.min.js
- ┃ ┃ ┣ 📜custom.js
- ┃ ┃ ┣ 📜jquery.min.js
- ┃ ┃ ┗ 📜tether.min.js
- ┣ 📂templates
- ┃ ┣ 📂accounts
- ┃ ┃ ┣ 📜login.html
- ┃ ┃ ┗ 📜signup.html
- ┃ ┣ 📂blog
- ┃ ┃ ┣ 📜page-404.html
- ┃ ┃ ┣ 📜post_confirm_delete.html
- ┃ ┃ ┣ 📜post_detail.html
- ┃ ┃ ┣ 📜post_list.html
- ┃ ┃ ┗ 📜post_new.html
- ┃ ┗ 📜base.html
- ┣ 📂tutorialdjango
- ┃ ┣ 📂__pycache__
- ┃ ┣ 📜asgi.py
- ┃ ┣ 📜settings.py
- ┃ ┣ 📜urls.py
- ┃ ┣ 📜wsgi.py
- ┃ ┗ 📜__init__.py
- ┣ 📜db.sqlite3
- ┣ 📜manage.py
- ┗ 📜requirements.txt
-
+    my_blog
+    ┣ accounts
+    ┃ ┣ migrations
+    ┃ ┃ ┣ __pycache__
+    ┃ ┃ ┃ ┗ __init__.cpython-312.pyc
+    ┃ ┃ ┗ __init__.py
+    ┃ ┣ __pycache__
+    ┃ ┃ ┣ admin.cpython-312.pyc
+    ┃ ┃ ┣ apps.cpython-312.pyc
+    ┃ ┃ ┣ forms.cpython-312.pyc
+    ┃ ┃ ┣ models.cpython-312.pyc
+    ┃ ┃ ┣ urls.cpython-312.pyc
+    ┃ ┃ ┣ views.cpython-312.pyc
+    ┃ ┃ ┗ __init__.cpython-312.pyc
+    ┃ ┣ admin.py
+    ┃ ┣ apps.py
+    ┃ ┣ forms.py
+    ┃ ┣ models.py
+    ┃ ┣ tests.py
+    ┃ ┣ urls.py
+    ┃ ┣ views.py
+    ┃ ┗ __init__.py
+    ┣ blog
+    ┃ ┣ migrations
+    ┃ ┃ ┣ __pycache__
+    ┃ ┃ ┃ ┣ 0001_initial.cpython-312.pyc
+    ┃ ┃ ┃ ┣ 0002_remove_comment_updated_at_alter_comment_created_at.cpython-312.pyc
+    ┃ ┃ ┃ ┣ 0003_remove_post_category_alter_post_tags_post_category.cpython-312.pyc
+    ┃ ┃ ┃ ┣ 0004_remove_post_category_alter_post_tags_post_category.cpython-312.pyc
+    ┃ ┃ ┃ ┣ 0005_remove_post_category_alter_post_tags_post_category.cpython-312.pyc
+    ┃ ┃ ┃ ┣ 0006_remove_post_category_alter_post_tags_post_category.cpython-312.pyc
+    ┃ ┃ ┃ ┣ 0007_comment_parent.cpython-312.pyc
+    ┃ ┃ ┃ ┣ 0008_remove_comment_parent.cpython-312.pyc
+    ┃ ┃ ┃ ┗ __init__.cpython-312.pyc
+    ┃ ┃ ┣ 0001_initial.py
+    ┃ ┃ ┣ 0002_remove_comment_updated_at_alter_comment_created_at.py
+    ┃ ┃ ┣ 0003_remove_post_category_alter_post_tags_post_category.py
+    ┃ ┃ ┣ 0004_remove_post_category_alter_post_tags_post_category.py
+    ┃ ┃ ┣ 0005_remove_post_category_alter_post_tags_post_category.py
+    ┃ ┃ ┣ 0006_remove_post_category_alter_post_tags_post_category.py
+    ┃ ┃ ┣ 0007_comment_parent.py
+    ┃ ┃ ┣ 0008_remove_comment_parent.py
+    ┃ ┃ ┗ __init__.py
+    ┃ ┣ __pycache__
+    ┃ ┃ ┣ admin.cpython-312.pyc
+    ┃ ┃ ┣ apps.cpython-312.pyc
+    ┃ ┃ ┣ forms.cpython-312.pyc
+    ┃ ┃ ┣ models.cpython-312.pyc
+    ┃ ┃ ┣ urls.cpython-312.pyc
+    ┃ ┃ ┣ views.cpython-312.pyc
+    ┃ ┃ ┗ __init__.cpython-312.pyc
+    ┃ ┣ admin.py
+    ┃ ┣ apps.py
+    ┃ ┣ forms.py
+    ┃ ┣ models.py
+    ┃ ┣ tests.py
+    ┃ ┣ urls.py
+    ┃ ┣ views.py
+    ┃ ┗ __init__.py
+    ┣ media
+    ┃ ┗ blog
+    ┃ ┃ ┣ files
+    ┃ ┃ ┃ ┗ 2023
+    ┃ ┃ ┃ ┃ ┗ 11
+    ┃ ┃ ┃ ┃ ┃ ┗ 07
+    ┃ ┃ ┃ ┃ ┃ ┃ ┣ KakaoTalk_20231107_015356387.mp4
+    ┃ ┃ ┃ ┃ ┃ ┃ ┗ KakaoTalk_20231107_015356387_iIFWm6S.mp4
+    ┃ ┃ ┗ images
+    ┃ ┃ ┃ ┗ 2023
+    ┃ ┃ ┃ ┃ ┗ 11
+    ┃ ┃ ┃ ┃ ┃ ┗ 07
+    ┃ ┃ ┃ ┃ ┃ ┃ ┣ KakaoTalk_20231107_015352688.jpg
+    ┃ ┃ ┃ ┃ ┃ ┃ ┣ KakaoTalk_20231107_015352688_01.jpg
+    ┃ ┃ ┃ ┃ ┃ ┃ ┣ KakaoTalk_20231107_015352688_01_bFGD3iF.jpg
+    ┃ ┃ ┃ ┃ ┃ ┃ ┣ KakaoTalk_20231107_015352688_enzs8fp.jpg
+    ┃ ┃ ┃ ┃ ┃ ┃ ┗ KakaoTalk_20231107_015352688_G9Q9kKK.jpg
+    ┣ static
+    ┃ ┣ css
+    ┃ ┃ ┣ .DS_Store
+    ┃ ┃ ┣ animate.css
+    ┃ ┃ ┣ animate.min.css
+    ┃ ┃ ┣ bootstrap.css
+    ┃ ┃ ┣ bootstrap.css.map
+    ┃ ┃ ┣ bootstrap.min.css
+    ┃ ┃ ┣ bootstrap.min.css.map
+    ┃ ┃ ┣ font-awesome.css
+    ┃ ┃ ┣ font-awesome.min.css
+    ┃ ┃ ┗ style.css
+    ┃ ┣ fonts
+    ┃ ┃ ┣ fontawesome-webfont.eot
+    ┃ ┃ ┣ fontawesome-webfont.svg
+    ┃ ┃ ┣ fontawesome-webfont.ttf
+    ┃ ┃ ┣ fontawesome-webfont.woff
+    ┃ ┃ ┣ fontawesome-webfont.woff2
+    ┃ ┃ ┗ FontAwesome.otf
+    ┃ ┣ images
+    ┃ ┃ ┣ apple-touch-icon.png
+    ┃ ┃ ┣ close.png
+    ┃ ┃ ┣ favicon.ico
+    ┃ ┃ ┣ flogo.png
+    ┃ ┃ ┣ loader.gif
+    ┃ ┃ ┣ loading.gif
+    ┃ ┃ ┣ logo.png
+    ┃ ┃ ┣ logo.psd
+    ┃ ┃ ┣ logo@2x.png
+    ┃ ┃ ┣ next.png
+    ┃ ┃ ┣ prev.png
+    ┃ ┃ ┗ white-logo.png
+    ┃ ┣ js
+    ┃ ┃ ┣ bootstrap.js
+    ┃ ┃ ┣ bootstrap.min.js
+    ┃ ┃ ┣ custom.js
+    ┃ ┃ ┣ jquery.min.js
+    ┃ ┃ ┗ tether.min.js
+    ┃ ┣ blog-category-01.html
+    ┃ ┣ index.html
+    ┃ ┣ page-404.html
+    ┃ ┣ shop-login.html
+    ┃ ┗ single.html
+    ┣ templates
+    ┃ ┣ accounts
+    ┃ ┃ ┣ login.html
+    ┃ ┃ ┗ signup.html
+    ┃ ┣ blog
+    ┃ ┃ ┣ page-404.html
+    ┃ ┃ ┣ post_confirm_delete.html
+    ┃ ┃ ┣ post_detail.html
+    ┃ ┃ ┣ post_list.html
+    ┃ ┃ ┗ post_new.html
+    ┃ ┗ base.html
+    ┣ tutorialdjango
+    ┃ ┣ __pycache__
+    ┃ ┃ ┣ settings.cpython-312.pyc
+    ┃ ┃ ┣ urls.cpython-312.pyc
+    ┃ ┃ ┣ wsgi.cpython-312.pyc
+    ┃ ┃ ┗ __init__.cpython-312.pyc
+    ┃ ┣ asgi.py
+    ┃ ┣ settings.py
+    ┃ ┣ urls.py
+    ┃ ┣ wsgi.py
+    ┃ ┗ __init__.py
+    ┣ db.sqlite3
+    ┣ manage.py
+    ┗ requirements.txt
 </div>
 
 ## 4. UI
