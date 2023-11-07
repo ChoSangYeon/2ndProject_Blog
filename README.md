@@ -38,10 +38,6 @@
 <img src="./readme_img/erd.png">
 
 ### 3.4 트리 구조
-<div style="overflow-y: scroll; height: 400px;">
-    <img src="" alt="트리구조" style="width: 100%; height: auto;">
-</div>
-
 ```
 📦my_blog
  ┣ 📂accounts
@@ -100,7 +96,7 @@
 
 ## 4. UI
 ### 4.1 상세설명 gif
--
+- 
 
 ## 5. 개발 중 발생한 문제점
 <ol>

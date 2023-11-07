@@ -110,50 +110,23 @@
                             <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
                                 <div class="small-blog-box blog-box clearfix">
                                     <div class="blog-media">
-                                        <a href="single.html" title=""><img src="upload/blog_03.jpg" alt="" class="img-fluid"></a>
+                                        <a href="{% url 'blog:post_detail' post.pk %}" title=""></a>
                                     </div>
                                     <!-- end blog-media -->
 
                                     <div class="blog-desc">
-                                        <span class="cat-title">Blogging</span>
-                                        <h4><a href="single.html" title="">01. Free Endless numbered days</a></h4>
+                                        <span class="cat-title">{{ post.category }}</span>
+                                        <h4><a href="{% url 'blog:post_detail' post.pk %}" title="">{{ post.title }}</a></h4>
                                         <div class="blog-meta">
-                                            June 11, 2018 &nbsp;-&nbsp;<span>By</span> <a href="#">Denise Jakops</a>
+                                            <span>{{ post.updated_at }}</span>
                                         </div>
                                         <!-- end meta -->
 
-                                        <p>Praesent consectetur vel dui sed molestie. Aliquam imperdiet cursus dapibus. Quisque vestibulum blandit tellus, nec volutpat turpis.</p>
+                                        <p>{{ post.content }}</p>
 
                                         <div class="post-bottom clearfix">
                                             <div class="pull-left">
-                                                <a href="single.html" class="readmore">Continue reading</a>
-                                            </div><!-- end left -->
-
-                                        </div><!-- end bottom -->
-                                    </div><!-- end desc -->
-                                </div><!-- end blog-box -->
-                            </div><!-- end col -->
-
-                            <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
-                                <div class="small-blog-box blog-box clearfix">
-                                    <div class="blog-media">
-                                        <a href="single.html" title=""><img src="upload/blog_02.jpg" alt="" class="img-fluid"></a>
-                                    </div>
-                                    <!-- end blog-media -->
-
-                                    <div class="blog-desc">
-                                        <span class="cat-title">Travel</span>
-                                        <h4><a href="single.html" title="">Get clean (water!) | Best water filters</a></h4>
-                                        <div class="blog-meta">
-                                            June 11, 2018 &nbsp;-&nbsp;<span>By</span> <a href="#">Matilda</a>
-                                        </div>
-                                        <!-- end meta -->
-
-                                        <p>Fusce sed lectus ut enim sagittis malesuada. Praesent maximus sollicitudin magna, a dapibus est venenatis quis lorem ipsum.</p>
-
-                                        <div class="post-bottom clearfix">
-                                            <div class="pull-left">
-                                                <a href="single.html" class="readmore">Continue reading</a>
+                                                <a href="{% url 'blog:post_detail' post.pk %}" class="readmore">Continue reading</a>
                                             </div><!-- end left -->
                                         </div><!-- end bottom -->
                                     </div><!-- end desc -->
