@@ -6,7 +6,9 @@ from .models import Post, Comment, Tag, Category
 from .forms import PostForm, CommentForm
 from django.contrib.auth.decorators import login_required
 import random
-from .models import Post
+from .models import Post, Category, Tag
+from django.views.generic.edit import CreateView
+
 
 class PostListView(ListView):
     model = Post
@@ -40,34 +42,22 @@ class PostCreateView(LoginRequiredMixin, CreateView):
     success_url = reverse_lazy('blog:post_list')
     template_name = 'blog/post_new.html'
 
-    def get(self, request):
-        form = PostForm()
-        return render(request, self.template_name, {'form': form})
+    def form_valid(self, form):
+        category_name = form.cleaned_data.get('new_category')
+        tag_name = form.cleaned_data.get('new_tag')
 
-    def post(self, request):
-        form = PostForm(request.POST, request.FILES)
-        if form.is_valid():
-            category_name = form.cleaned_data.get('new_category')
-            tag_name = form.cleaned_data.get('new_tag')
+        if category_name:
+            category, created = Category.objects.get_or_create(name=category_name)
+            form.instance.category = category
 
-            if category_name:
-                category, created = Category.objects.get_or_create(name=category_name)
-                form.instance.category = category
-            else:
-                form.instance.tags = form.cleaned_data['category']
+        form.instance.author = self.request.user
+        response = super().form_valid(form)
 
-            if tag_name:
-                tag, created = Tag.objects.get_or_create(name=tag_name)
-                # form.instance.tag = tag
-                form.instance.tags.add(tag)
-            else:
-                form.instance.tag = form.cleaned_data['tag']
+        if tag_name:
+            tag, created = Tag.objects.get_or_create(name=tag_name)
+            form.instance.tags.set([tag])  # set()에는 반복 가능한(iterable) 객체를 전달해야 함
 
-            form.instance.author = request.user
-            form.save()
-            return redirect('blog:post_list')
-
-        return render(request, self.template_name, {'form': form})
+        return response
 
 post_new = PostCreateView.as_view()
 
@@ -128,3 +118,4 @@ def comment_new(request, pk):
         form = CommentForm()
 
     return render(request, 'blog/post_detail.html', {'form': form, 'post': post})
+
