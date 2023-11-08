@@ -21,22 +21,7 @@
 
 
 ## 3. 프로젝트 구조
-### 3.1 마인드맵
-- Mindmeister 링크: https://www.mindmeister.com/app/map/3010878011
-<br><br>
-<img src="./readme_img/mindmap.png">
-
-### 3.2 목업 페이지
-- https://ovenapp.io/project/DGY1dyEDCSxTVnsAE2LIKQ6MthNyu223#9i42R
-<br><br>
-<img src="./readme_img/mockup.jpg">
-
-### 3.3 DB 구조
-- https://dbdiagram.io/d/my_blog-653ef688ffbf5169f0b04b3a
-<br><br>
-<img src="./readme_img/erd.png">
-
-### 3.4 트리 구조
+### 3.1 트리 구조
 ```
 📦my_blog
  ┣ 📂accounts
@@ -92,20 +77,35 @@
  ┣ 📜manage.py
  ┗ 📜requirements.txt
 ```
+### 3.2 마인드맵
+- Mindmeister 링크: https://www.mindmeister.com/app/map/3010878011
+<br><br>
+<img src="./readme_img/mindmap.png">
+
+### 3.3 목업 페이지
+- https://ovenapp.io/project/DGY1dyEDCSxTVnsAE2LIKQ6MthNyu223#9i42R
+<br><br>
+<img src="./readme_img/mockup.jpg">
+
+### 3.4 DB 구조
+- https://dbdiagram.io/d/my_blog-653ef688ffbf5169f0b04b3a
+<br><br>
+<img src="./readme_img/erd.png">
+
 
 ## 4. UI
 ## 4.1 블로그 메인
 ### 4.1.1
 <img src="./readme_gif/main_01.gif" width="100%"><br>
-<img src="./readme_gif/main_mobile_01.gif"><br>
-<img src="./readme_gif/main_mobile_logo.gif"><br>
+<img src="./readme_gif/main_mobile_01.gif" height="400px">
+<img src="./readme_gif/main_mobile_logo.gif" height="400px"><br>
 
 - 반응형웹으로 웹과 모바일 환경 맞춰 제공합니다.
 - 상하단의 로고, 마틸다(템플릿 저작권자의 로고)를 클릭하면 블로그 메인, 화면 상단으로 이동합니다.
 
 ### 4.1.2 블로그 상단 메뉴바
 <img src="./readme_gif/main_top_menu.gif" width="100%"><br>
-<img src="./readme_gif/main_mobile_move.gif"><br>
+<img src="./readme_gif/main_mobile_move.gif" height="400px"><br>
 
 - 블로그 상단의 'Blog Home', 'Login', 'Signup', 'Logout', 'Create New Post'를 클릭하여 블로그 메인 화면, 로그인 및 회원가입, 새 게시물 작성이 가능합니다.
 
