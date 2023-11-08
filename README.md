@@ -96,7 +96,7 @@
 ## 4. UI
 ## 4.1 블로그 메인
 ### 4.1.1
-<img src="./readme_gif/main_01.gif"><br>
+<img src="./readme_gif/main_01.gif" width="100%"><br>
 <img src="./readme_gif/main_mobile_01.gif"><br>
 <img src="./readme_gif/main_mobile_logo.gif"><br>
 
@@ -104,56 +104,56 @@
 - 상하단의 로고, 마틸다(템플릿 저작권자의 로고)를 클릭하면 블로그 메인, 화면 상단으로 이동합니다.
 
 ### 4.1.2 블로그 상단 메뉴바
-<img src="./readme_gif/main_top_menu.gif"><br>
+<img src="./readme_gif/main_top_menu.gif" width="100%"><br>
 <img src="./readme_gif/main_mobile_move.gif"><br>
 
 - 블로그 상단의 'Blog Home', 'Login', 'Signup', 'Logout', 'Create New Post'를 클릭하여 블로그 메인 화면, 로그인 및 회원가입, 새 게시물 작성이 가능합니다.
 
-<img src="./readme_gif/login_signup_taka.gif"><br>
-<img src="./readme_gif/login_honoka.gif"><br>
-<img src="./readme_gif/logout.gif"><br>
+<img src="./readme_gif/login_signup_taka.gif" width="100%"><br>
+<img src="./readme_gif/login_honoka.gif" width="100%"><br>
+<img src="./readme_gif/logout.gif" width="100%"><br>
 
 - 'signup' 페이지에서 간단하게 회원가입을 할 수 있으며, 메인 화면 우측 상단의 숨김 메뉴에서 유저명을 확인 할 수 있으며, 로그아웃 시 우측 숨김 메뉴에서 유저 정보가 사라집니다.
 
 ### 4.1.3 게시물 3개를 랜덤으로 슬라이드
-<img src="./readme_gif/main_slide.gif"><br>
+<img src="./readme_gif/main_slide.gif" width="100%"><br>
 
 - 메인 화면 로고 하단에, 업로드한 게시물 중 3개를 랜덤으로 보여줍니다. 
 - 썸네일 이미지와 카테고리, 타이틀을 확인할 수 있으며, 상세 게시물을 확인하기 위해서는 슬라이드 가운데의 'continue reading'을 클릭하시면 상세 게시물로 이동합니다.
 
 ### 4.1.4 업로드한 게시물 목록 확인과 게시물 검색
-<img src="./readme_gif/main_sidebar.gif"><br>
+<img src="./readme_gif/main_sidebar.gif" width="100%"><br>
 - 메인 화면에서 게시물 검색, 카테고리, 태그로 특정 게시물에 접근할 수 있습니다.
 
 ## 4.2 게시물 CRUD
 ### 4.2.1 Create
-<img src="./readme_gif/post_c.gif"><br>
+<img src="./readme_gif/post_c.gif" width="100%"><br>
 
 - 상단 메뉴의 'Create New Post'를 통해 새 게시물을 작성할 수 있습니다.
 
-<img src="./readme_gif/user_cant_d.gif"><br>
+<img src="./readme_gif/user_cant_d.gif" width="100%"><br>
 
 - 단, 등록된 superuser가 아니라면 게시물에 대한 접근을 할 수 없습니다.
 
 ### 4.2.2 Read
-<img src="./readme_gif/post_r.gif"><br>
+<img src="./readme_gif/post_r.gif" width="100%"><br>
 
 - 메인 화면에서 'continue reading' 버튼을 통해 상세 게시물에 접근이 가능합니다.
 - 게시물 썸네일 이미지 상단에는 열람 시 조회수를 확인할 수 있으며, superuser한에서 수정, 삭제가 가능하며, 목록으로 메인 화면으로 돌아갑니다.
 
 ### 4.2.3 Update(Edit)
-<img src="./readme_gif/post_e.gif"><br>
+<img src="./readme_gif/post_e.gif" width="100%"><br>
 
 - 등록된 superuser만 게시물 수정이 가능합니다.
 
 ### 4.2.4 Delete
-<img src="./readme_gif/post_d_02.gif"><br>
-<img src="./readme_gif/post_d_03.gif"><br>
+<img src="./readme_gif/post_d_02.gif" width="100%"><br>
+<img src="./readme_gif/post_d_03.gif" width="100%"><br>
 
 - 게시물 삭제의 경우 삭제 의사를 한 번 더 확인하는 페이지로 연결되어 삭제 과정을 진행하도록 하였습니다.
 
 ### 4.2.5 댓글
-<img src="./readme_gif/comment.gif"><br>
+<img src="./readme_gif/comment.gif" width="100%"><br>
 
 - superuser, 일반 user 모두 게시물에 댓글을 달 수 있습니다.
 
