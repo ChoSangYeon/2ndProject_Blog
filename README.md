@@ -80,7 +80,7 @@
 ### 3.2 마인드맵
 - Mindmeister 링크: https://www.mindmeister.com/app/map/3010878011
 <br><br>
-<img src="./readme_img/mindmap.png">
+<img src="./readme_img/mindmap2.png">
 
 ### 3.3 목업 페이지
 - https://ovenapp.io/project/DGY1dyEDCSxTVnsAE2LIKQ6MthNyu223#9i42R
